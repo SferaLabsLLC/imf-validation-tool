@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><AssetMap xmlns="http://www.smpte-ra.org/schemas/429-9/2007/AM"><Id>urn:uuid:7eee416b-a4b2-47f3-8190-2427f604ed5e</Id><AnnotationText>CHIMERA_NETFLIX_50</AnnotationText><Creator>Clipster 5.9.2.0 (build 86470)</Creator><VolumeCount>1</VolumeCount><IssueDate>2014-08-27T11:28:20-00:00</IssueDate><Issuer>fotokem</Issuer>
+<AssetList>
+<Id>urn:uuid:157c47e5-1568-44f8-b801-4b4ddca9a62f</Id>
+<ChunkList>
+<Chunk>
+<Path>fake_audio.mxf</Path><VolumeIndex>1</VolumeIndex></Chunk></ChunkList></Asset>
+<Asset>
+<Id>urn:uuid:4da4a906-a08e-4587-b94f-9e4ea29c4eb5</Id>
+<ChunkList>
+<Chunk>
+<Path>fake_video.mxf</Path><VolumeIndex>1</VolumeIndex></Chunk></ChunkList></Asset>
+</AssetList></AssetMap>

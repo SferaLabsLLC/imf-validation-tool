@@ -1,0 +1,10 @@
+com.sferalabs.imf.exception
+com.sferalabs.imf.model.assetmap
+com.sferalabs.imf.model.compositionplaylist
+com.sferalabs.imf.model.imfpackage
+com.sferalabs.imf.model.packinglist
+com.sferalabs.imf.saxhandler
+com.sferalabs.imf.util
+com.sferalabs.imf.validation
+com.sferalabs.imf.xsd
+com.sferalabs.imf.xsd.schema

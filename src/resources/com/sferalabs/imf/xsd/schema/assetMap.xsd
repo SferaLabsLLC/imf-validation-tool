@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.smpte-ra.org/schemas/429-9/2007/AM"
+           xmlns:am="http://www.smpte-ra.org/schemas/429-9/2007/AM"
+           xmlns:dcml="http://www.smpte-ra.org/schemas/433/2008/dcmlTypes"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+    <xs:import namespace="http://www.smpte-ra.org/schemas/433/2008/dcmlTypes" schemaLocation="dcmlTypes.xsd"/>
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/03/xml.xsd"/>
+
+    <xs:complexType name="ChunkType">
+        <xs:sequence>
+            <xs:element name="Path" type="xs:anyURI"/>
+            <xs:element name="VolumeIndex" type="xs:positiveInteger" minOccurs="0"/>
+            <xs:element name="Offset" type="xs:nonNegativeInteger" minOccurs="0"/>
+            <xs:element name="Length" type="xs:positiveInteger" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AssetType">
+        <xs:sequence>
+            <xs:element name="Id" type="dcml:UUIDType"/>
+            <xs:element name="AnnotationText" type="dcml:UserTextType" minOccurs="0"/>
+            <xs:element name="PackingList" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="ChunkList">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Chunk" type="am:ChunkType" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AssetMapType">
+        <xs:sequence>
+            <xs:element name="Id" type="dcml:UUIDType"/>
+            <xs:element name="AnnotationText" type="dcml:UserTextType" minOccurs="0"/>
+            <xs:element name="Creator" type="dcml:UserTextType"/>
+            <xs:element name="VolumeCount" type="xs:positiveInteger"/>
+            <xs:element name="IssueDate" type="xs:dateTime"/>
+            <xs:element name="Issuer" type="dcml:UserTextType"/>
+            <xs:element name="AssetList">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Asset" type="am:AssetType" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="AssetMap" type="am:AssetMapType"/>
+
+    <xs:complexType name="VolumeIndexType">
+        <xs:sequence>
+            <xs:element name="Index" type="xs:positiveInteger"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="VolumeIndex" type="am:VolumeIndexType"/>
+
+</xs:schema>

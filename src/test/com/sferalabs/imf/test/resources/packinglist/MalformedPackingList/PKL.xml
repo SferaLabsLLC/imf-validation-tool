@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><PackingList xmlns="http://www.smpte-ra.org/schemas/429-8/2007/PKL">
+<Id>urn:uuid:ca6dfb18-98d6-44ca-8649-90606d3d8e6b</Id>
+<AnnotationText>Test
+<IssueDate>2014-08-27T11:28:20-00:00</IssueDate>
+<Issuer>fotokem</Issuer>
+<Creator>Clipster 5.9.2.0 (build 86470)</Creator>
+<AssetList>
+<Asset>
+<Id>urn:uuid:157c47e5-1568-44f8-b801-4b4ddca9a62f</Id>
+<Hash>n0J13wKusTE/6yNqZ0TghSVHvwM=</Hash>
+<Size>1</Size>
+<Type>application/mxf</Type>
+<OriginalFileName>fake_audio.mxf</OriginalFileName></Asset>
+<Asset>
+<Id>urn:uuid:4da4a906-a08e-4587-b94f-9e4ea29c4eb5</Id>
+<Hash>9BIzk0MTFgzhiYRRXfwPOBGsmD8=</Hash>
+<Size>1</Size>
+<Type>application/mxf</Type>
+<OriginalFileName>fake_video.mxf</OriginalFileName></Asset></AssetList></PackingList>

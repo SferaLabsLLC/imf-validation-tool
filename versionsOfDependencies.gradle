@@ -1,0 +1,11 @@
+/*
+* Name value pairs of 'variable-version' can also be specified in gradle.properties, but value of a property
+* cannot be pointing to another property variable.
+* Having gradle file for versions has benefit of flexibly in specifying property values over gradle.properties method
+* */
+
+ext{
+    revLog4j = '1.2.+'
+    revSlf4j = '1.7+'
+    mxfLibrary = '0.0.+'
+}

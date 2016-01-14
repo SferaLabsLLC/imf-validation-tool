@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema targetNamespace="http://www.smpte-ra.org/schemas/429-8/2007/PKL"
+           xmlns:pkl="http://www.smpte-ra.org/schemas/429-8/2007/PKL"
+           xmlns:dcml="http://www.smpte-ra.org/schemas/433/2008/dcmlTypes"
+           xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+    <xs:import namespace="http://www.w3.org/2000/09/xmldsig#"
+               schemaLocation="http://www.w3.org/TR/2002/REC-xmldsig-core-20020212/xmldsig-core-schema.xsd"/>
+    <xs:import namespace="http://www.smpte-ra.org/schemas/433/2008/dcmlTypes" schemaLocation="dcmlTypes.xsd"/>
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/03/xml.xsd"/>
+
+    <!-- PackingList -->
+    <xs:element name="PackingList">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Id" type="dcml:UUIDType"/>
+                <xs:element name="AnnotationText" type="dcml:UserTextType" minOccurs="0"/>
+                <xs:element name="IconId" type="dcml:UUIDType" minOccurs="0"/>
+                <xs:element name="IssueDate" type="xs:dateTime"/>
+                <xs:element name="Issuer" type="dcml:UserTextType"/>
+                <xs:element name="Creator" type="dcml:UserTextType"/>
+                <xs:element name="GroupId" type="dcml:UUIDType" minOccurs="0"/>
+                <xs:element name="AssetList">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Asset" type="pkl:AssetType" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Signer" type="ds:KeyInfoType" minOccurs="0"/>
+                <xs:element ref="ds:Signature" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Asset -->
+    <xs:element name="Asset" type="pkl:AssetType"/>
+    <xs:complexType name="AssetType">
+        <xs:sequence>
+            <xs:element name="Id" type="dcml:UUIDType"/>
+            <xs:element name="AnnotationText" type="dcml:UserTextType" minOccurs="0"/>
+            <xs:element name="Hash" type="xs:base64Binary"/>
+            <xs:element name="Size" type="xs:positiveInteger"/>
+            <xs:element name="Type" type="xs:string"/>
+            <xs:element name="OriginalFileName" type="dcml:UserTextType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
