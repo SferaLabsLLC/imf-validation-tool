@@ -22,7 +22,7 @@ The IMF Validation has dependencies on following libraries:
 * log4j
 * slf4j-api
 * slf4j-log4j12
-* MXFLibrary
+* [Photon](https://github.com/Netflix/photon) (reading MXF)
 * junit
 
 -------------------------------------------------------------------------------
