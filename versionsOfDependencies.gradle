@@ -7,5 +7,5 @@
 ext{
     revLog4j = '1.2.+'
     revSlf4j = '1.7+'
-    mxfLibrary = '0.0.+'
+    photon = 'latest.release'
 }

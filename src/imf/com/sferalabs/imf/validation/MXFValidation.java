@@ -14,7 +14,7 @@ import java.util.Set;
 import com.netflix.imflibrary.IMFConstraints;
 import com.netflix.imflibrary.IMFErrorLogger;
 import com.netflix.imflibrary.IMFErrorLoggerImpl;
-import com.netflix.imflibrary.MXFKLVPacket;
+import com.netflix.imflibrary.KLVPacket;
 import com.netflix.imflibrary.MXFOperationalPattern1A;
 import com.netflix.imflibrary.exceptions.MXFException;
 import com.netflix.imflibrary.st0377.HeaderPartition;
@@ -167,17 +167,17 @@ public class MXFValidation {
     private PartitionPack getPartitionPack(long resourceOffset) throws IOException
     {
         long archiveFileSize = this.resourceByteRangeProvider.getResourceSize();
-        MXFKLVPacket.Header header;
+        KLVPacket.Header header;
         {//logic to provide as an input stream the portion of the archive that contains PartitionPack KLVPacker Header
             long rangeStart = resourceOffset;
             long rangeEnd = resourceOffset +
-                    (MXFKLVPacket.KEY_FIELD_SIZE + MXFKLVPacket.LENGTH_FIELD_SUFFIX_MAX_SIZE) -1;
+                    (KLVPacket.KEY_FIELD_SIZE + KLVPacket.LENGTH_FIELD_SUFFIX_MAX_SIZE) -1;
             rangeEnd = rangeEnd < (archiveFileSize - 1) ? rangeEnd : (archiveFileSize - 1);
 
             File fileWithPartitionPackKLVPacketHeader = this.resourceByteRangeProvider.getByteRange(rangeStart, rangeEnd, this.workingDirectory);
             MXFFileDataProvider byteProvider = this.getByteProvider(fileWithPartitionPackKLVPacketHeader);
             try {
-            	header = new MXFKLVPacket.Header(byteProvider, resourceOffset);
+            	header = new KLVPacket.Header(byteProvider, resourceOffset);
             } finally {
             	byteProvider.close();
             }
@@ -188,8 +188,8 @@ public class MXFValidation {
 
             long rangeStart = resourceOffset;
             long rangeEnd = resourceOffset +
-                    (MXFKLVPacket.KEY_FIELD_SIZE + header.getLSize() + header.getVSize()) +
-                    (MXFKLVPacket.KEY_FIELD_SIZE + MXFKLVPacket.LENGTH_FIELD_SUFFIX_MAX_SIZE) +
+                    (KLVPacket.KEY_FIELD_SIZE + header.getLSize() + header.getVSize()) +
+                    (KLVPacket.KEY_FIELD_SIZE + KLVPacket.LENGTH_FIELD_SUFFIX_MAX_SIZE) +
                     -1;
             rangeEnd = rangeEnd < (archiveFileSize - 1) ? rangeEnd : (archiveFileSize - 1);
 
